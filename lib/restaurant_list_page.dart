@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/restaurant.dart';
 import 'package:restaurant_app/restaurant_detail.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-class RestaurantListPage extends StatelessWidget {
+class RestaurantListPage extends StatefulWidget {
   static const routeName = '/restaurant_list';
 
-  const RestaurantListPage({Key? key}) : super(key: key);
+  const RestaurantListPage({super.key});
 
   @override
+  State<RestaurantListPage> createState() => _RestaurantListPageState();
+}
+
+class _RestaurantListPageState extends State<RestaurantListPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(seconds: 4)).then((value) => {
+      FlutterNativeSplash.remove()
+    });
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

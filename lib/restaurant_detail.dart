@@ -24,7 +24,7 @@ class RestaurantDetail extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(restaurant.description),
-                  Divider(color: Colors.grey),
+                  const Divider(color: Colors.grey),
                 ],
               ),
             ),
