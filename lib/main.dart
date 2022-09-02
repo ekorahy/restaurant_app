@@ -3,6 +3,7 @@ import 'package:restaurant_app/restaurant.dart';
 import 'package:restaurant_app/restaurant_detail.dart';
 import 'package:restaurant_app/restaurant_list_page.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:restaurant_app/styles.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +19,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Restaurant App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+        primary: primaryColor,
+        onPrimary: Colors.black,
+        secondary: secondaryColor,
+      ),
       ),
       initialRoute: RestaurantListPage.routeName,
       routes: {

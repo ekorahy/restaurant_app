@@ -12,7 +12,7 @@ class RestaurantDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(restaurant.name),
+        title: const Text('Restaurant Detail'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -23,8 +23,27 @@ class RestaurantDetail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(restaurant.name),
+                  Text(restaurant.city),
                   Text(restaurant.description),
                   const Divider(color: Colors.grey),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('Menus'),
+                  const Text('Foods :'),
+                  Text(
+                    '${restaurant.menus.foods.map((e) => e)}'
+                  ),
+                  const Text('Drinks :'),
+                  Text(
+                      '${restaurant.menus.drinks.map((e) => e)}'
+                  ),
                 ],
               ),
             ),
