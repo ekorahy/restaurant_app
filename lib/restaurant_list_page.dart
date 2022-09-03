@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_app/restaurant.dart';
 import 'package:restaurant_app/restaurant_detail.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:restaurant_app/styles.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RestaurantListPage extends StatefulWidget {
   static const routeName = '/restaurant_list';
@@ -31,9 +33,12 @@ class _RestaurantListPageState extends State<RestaurantListPage> {
               fit: BoxFit.contain,
               height: 32,
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 5.0),
-              child: Text('Restaurant App'),
+            Padding(
+              padding: const EdgeInsets.only(left: 5.0),
+              child: Text(
+                'Restaurant App',
+                style: Theme.of(context).textTheme.headline5,
+              ),
             ),
           ],
         ),
@@ -60,17 +65,20 @@ Widget _buildRestaurantItem(BuildContext context, Restaurant restaurant) {
   return InkWell(
     child: Card(
       margin: const EdgeInsets.symmetric(
-        horizontal: 25,
+        horizontal: 35,
         vertical: 10,
       ),
       child: Container(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               flex: 1,
-              child: Image.network(restaurant.pictureId),
+              child: Image.network(
+                restaurant.pictureId,
+                width: 100.0,
+              ),
             ),
             Expanded(
               flex: 2,
@@ -93,16 +101,16 @@ Widget _buildRestaurantItem(BuildContext context, Restaurant restaurant) {
                       margin: const EdgeInsets.only(bottom: 4.0),
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.location_on,
                             size: 14.0,
-                            color: Colors.orange,
+                            color: primaryColor,
                           ),
                           Text(
                             restaurant.city,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14.0,
-                              color: Colors.orange,
+                              color: primaryColor,
                             ),
                           ),
                         ],
@@ -110,16 +118,16 @@ Widget _buildRestaurantItem(BuildContext context, Restaurant restaurant) {
                     ),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.star,
                           size: 14.0,
-                          color: Colors.yellow,
+                          color: goldColor,
                         ),
                         Text(
                           restaurant.rating.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14.0,
-                            color: Colors.yellow,
+                            color: goldColor,
                           ),
                         ),
                       ],
